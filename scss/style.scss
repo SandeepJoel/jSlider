@@ -1,0 +1,93 @@
+@import "compass";
+$side_space_for_arrows: 10%;
+$arrow-size: 100px;  
+body{
+background-color: rgba(234,165,188,1.0);
+}
+	.jslider{
+		position: relative;
+		padding-top: 100px;
+		padding-bottom: 100px;
+		height: 450px;
+		overflow: hidden;
+		.jslider-item{
+			position: relative;
+			width: 600px;
+			perspective: 2000px;
+			height: 450px;
+			margin: 15px auto;	
+		}
+	
+	.arrow-left,.arrow-right{
+		position: absolute;
+		display: inline-block;
+		top: 50%;
+		@include translateY(-50%);
+		width: $arrow-size;
+		height: $arrow-size;
+		img{
+			width: 100%;
+		}
+	}
+	
+	.arrow-left{
+		left: $side_space_for_arrows;
+	}
+	.arrow-right{
+		right: $side_space_for_arrows;
+	}
+}
+
+$effect : "book_fold";
+
+.#{$effect}-old-part,.#{$effect}-new-part{
+	@include transition(transform 1.5s ease-in, opacity 0.7s ease-in);
+	position: absolute;
+	opacity: 1;
+	}
+
+.#{$effect}-old-part-page1-ani-after{
+		// transform-origin: left center; 
+		// transform: rotateY(90deg);
+		
+		@include transform-origin(right, center); 
+		@include transform(rotateY(-90deg));
+		//opacity: 0;
+}
+
+.#{$effect}-old-part-page2-ani-after{
+		// transform-origin: right center;	
+		// transform: rotateY(-90deg);
+
+		@include transform-origin(left, center);	
+		@include transform(rotateY(90deg));
+		//opacity: 0;
+}
+
+.#{$effect}-new-part-page1-ani-before{
+		// transform-origin: left center; 
+		// transform: rotateY(-90deg);
+
+		@include transform-origin(right, center); 
+		@include transform(rotateY(90deg));
+		//	opacity: 0;
+}
+
+.#{$effect}-new-part-page2-ani-before{
+		// transform-origin: right center;	
+		// transform: rotateY(90deg);
+
+		@include transform-origin(left, center);	
+		@include transform(rotateY(-90deg));
+		//	opacity: 0;
+}
+
+.#{$effect}-new-part-page1-ani-after{
+		@include transform(rotateY(0deg));
+		//	opacity: 1;
+}
+
+.#{$effect}-new-part-page2-ani-after{
+		@include transform(rotateY(0deg));
+		//	opacity: 1;
+}

@@ -1,0 +1,119 @@
+/* line 4, ../scss/style.scss */
+body {
+  background-color: #eaa5bc;
+}
+
+/* line 7, ../scss/style.scss */
+.jslider {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  height: 450px;
+  overflow: hidden;
+}
+/* line 13, ../scss/style.scss */
+.jslider .jslider-item {
+  position: relative;
+  width: 600px;
+  perspective: 2000px;
+  height: 450px;
+  margin: 15px auto;
+}
+/* line 21, ../scss/style.scss */
+.jslider .arrow-left, .jslider .arrow-right {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
+}
+/* line 28, ../scss/style.scss */
+.jslider .arrow-left img, .jslider .arrow-right img {
+  width: 100%;
+}
+/* line 33, ../scss/style.scss */
+.jslider .arrow-left {
+  left: 10%;
+}
+/* line 36, ../scss/style.scss */
+.jslider .arrow-right {
+  right: 10%;
+}
+
+/* line 43, ../scss/style.scss */
+.book_fold-old-part, .book_fold-new-part {
+  -moz-transition: -moz-transform 1.5s ease-in, opacity 0.7s ease-in;
+  -o-transition: -o-transform 1.5s ease-in, opacity 0.7s ease-in;
+  -webkit-transition: -webkit-transform 1.5s ease-in, opacity 0.7s ease-in;
+  transition: transform 1.5s ease-in, opacity 0.7s ease-in;
+  position: absolute;
+  opacity: 1;
+}
+
+/* line 49, ../scss/style.scss */
+.book_fold-old-part-page1-ani-after {
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  -webkit-transform-origin: right center;
+  transform-origin: right center;
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+}
+
+/* line 58, ../scss/style.scss */
+.book_fold-old-part-page2-ani-after {
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
+
+/* line 67, ../scss/style.scss */
+.book_fold-new-part-page1-ani-before {
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  -webkit-transform-origin: right center;
+  transform-origin: right center;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
+
+/* line 76, ../scss/style.scss */
+.book_fold-new-part-page2-ani-before {
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+}
+
+/* line 85, ../scss/style.scss */
+.book_fold-new-part-page1-ani-after {
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+/* line 90, ../scss/style.scss */
+.book_fold-new-part-page2-ani-after {
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}

@@ -1,0 +1,20 @@
+{
+  "name": "jSlider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GruntFile.js",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-compass": "1.1.1",
+    "grunt-contrib-uglify": "^2.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "lite-server": "^2.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite-server": "lite-server –port 10001",
+    "start": "npm run lite-server"
+  },
+  "author": "MrJ5.0",
+  "license": "ISC"
+}

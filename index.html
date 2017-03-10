@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jSlider</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div id="jslider1" class="jslider">
+	<div class="jslider-item" id="j1">
+		<img src="images/skulls-1.svg">
+	</div>
+	<div class="jslider-item" id="j2">
+		<img src="images/skulls-2.svg">
+	</div>
+	<div class="jslider-item" id="j3">
+		<img src="images/skulls-4.svg">
+	</div>
+	<div class="jslider-item" id="j4">
+		<img src="images/skulls-10.svg">
+	</div>
+	<a href="#" class="arrow-left" >
+		<img src="images/left.svg">
+	</a>
+	<a href="#" class="arrow-right">
+		<img src="images/right.svg">
+	</a>
+</div>
+
+ <div id="jslider2"  class="jslider">
+	<div class="jslider-item">
+		<img src="images/skulls-2.svg">
+	</div>
+	<div class="jslider-item">
+		<img src="images/skulls-4.svg">
+	</div>
+	<div class="jslider-item">
+		<img src="images/skulls-10.svg">
+	</div>
+	<a href="#" class="arrow-left">
+		<img src="images/left.svg">
+	</a>
+	<a href="#" class="arrow-right">
+		<img src="images/right.svg">
+	</a>
+</div> 
+</body>
+<script src="js/vendor/jquery-3.1.1.js"></script>
+<script src="js/slider.js"></script>
+<script>
+	$("#jslider1").jslider({
+		automatic : false,
+		effect : "book_fold",
+		duration : 500	
+	});
+	$("#jslider2").jslider({
+		automatic : false,
+		effect : "book_fold",
+		duration : 1000	
+	});
+
+</script>
+</html>
