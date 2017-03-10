@@ -1,0 +1,2 @@
+# jSlider
+Slider Plugin
