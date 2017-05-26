@@ -1,85 +1,381 @@
-/* line 4, ../scss/style.scss */
+/* line 10, ../scss/style.scss */
 body {
-  background-color: #eaa5bc;
+  font-family: Raleway;
+  margin: 0;
 }
 
-/* line 7, ../scss/style.scss */
-.jslider {
-  position: relative;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  height: 450px;
+/* line 14, ../scss/style.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 17, ../scss/style.scss */
+img {
+  width: 100%;
+}
+
+/* line 20, ../scss/style.scss */
+.jslider img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+}
+
+/* line 26, ../scss/style.scss */
+.border-tl {
+  border-top-left-radius: 10px;
+}
+
+/* line 29, ../scss/style.scss */
+.border-tr {
+  border-top-right-radius: 10px;
+}
+
+/* line 32, ../scss/style.scss */
+.border-br {
+  border-bottom-right-radius: 10px;
+}
+
+/* line 35, ../scss/style.scss */
+.border-bl {
+  border-bottom-left-radius: 10px;
+}
+
+/* line 38, ../scss/style.scss */
+.overflow-hidden {
   overflow: hidden;
 }
-/* line 13, ../scss/style.scss */
-.jslider .jslider-item {
-  position: relative;
-  width: 600px;
-  perspective: 2000px;
-  height: 450px;
-  margin: 15px auto;
+
+/* line 41, ../scss/style.scss */
+.overflow-auto {
+  overflow: auto;
 }
-/* line 21, ../scss/style.scss */
+
+/* line 44, ../scss/style.scss */
+.hide {
+  display: none;
+}
+
+/* line 47, ../scss/style.scss */
+.addBlur {
+  -webkit-filter: brightness(20%) blur(10px);
+  filter: brightness(20%) blur(10px);
+}
+
+@-moz-keyframes drawlines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawlines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawlines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* line 56, ../scss/style.scss */
+h1, h2, h3 {
+  margin: 0;
+}
+
+/* line 59, ../scss/style.scss */
+h1 {
+  font-size: 4.5rem;
+  font-weight: 500;
+  color: #A3A3A3;
+}
+
+/* line 65, ../scss/style.scss */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #444054;
+}
+
+/* line 71, ../scss/style.scss */
+h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+/* line 77, ../scss/style.scss */
+.top {
+  margin-top: 150px;
+}
+
+/* line 80, ../scss/style.scss */
+button {
+  border: none;
+  margin-top: 25px;
+  background-color: #EBEBD3;
+  padding: 20px 40px;
+  color: #444054;
+  font-size: 36px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+/* line 90, ../scss/style.scss */
+.left_arrow_icon {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 93, ../scss/style.scss */
+svg {
+  width: 100%;
+}
+/* line 96, ../scss/style.scss */
+svg path {
+  fill: none;
+  stroke: #A3A3A3;
+  stroke-width: 5px;
+}
+
+/* line 102, ../scss/style.scss */
+.line-animation {
+  -moz-animation: drawlines 1s linear forwards;
+  -webkit-animation: drawlines 1s linear forwards;
+  animation: drawlines 1s linear forwards;
+}
+
+/* line 105, ../scss/style.scss */
+.section2 {
+  perspective: 1000px;
+}
+
+/* line 108, ../scss/style.scss */
+.section1 {
+  min-height: 600px;
+}
+
+/* line 111, ../scss/style.scss */
+.section2, .section3 {
+  min-height: 700px;
+}
+
+/* line 114, ../scss/style.scss */
+.section1 {
+  background-color: #444054;
+}
+/* line 116, ../scss/style.scss */
+.section1 h1, .section1 h3, .section1 button, .section1 img {
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  opacity: 1;
+}
+/* line 122, ../scss/style.scss */
+.section1.initial-state-styles h1, .section1.initial-state-styles h3, .section1.initial-state-styles button, .section1.initial-state-styles img {
+  opacity: 0;
+}
+
+/* line 127, ../scss/style.scss */
+.section2 {
+  background-color: #EBEBD3;
+}
+
+/* line 139, ../scss/style.scss */
+.modal {
+  position: fixed;
+  z-index: 0;
+  -moz-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  -webkit-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
+  -moz-transform: perspective(1000px) rotateX(-90deg);
+  -ms-transform: perspective(1000px) rotateX(-90deg);
+  -webkit-transform: perspective(1000px) rotateX(-90deg);
+  transform: perspective(1000px) rotateX(-90deg);
+  background-color: white;
+}
+/* line 147, ../scss/style.scss */
+.modal.overlay {
+  -moz-transform: perspective(1000px) rotateX(-360deg);
+  -ms-transform: perspective(1000px) rotateX(-360deg);
+  -webkit-transform: perspective(1000px) rotateX(-360deg);
+  transform: perspective(1000px) rotateX(-360deg);
+  z-index: 4;
+  top: 0px !important;
+  left: 0px !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+/* line 158, ../scss/style.scss */
+.modal a {
+  width: 30%;
+  color: #444054;
+  font-size: 25px;
+  margin: 10px auto;
+  display: block;
+  text-align: CENTER;
+}
+
+/* line 168, ../scss/style.scss */
+.modal-wrapper {
+  perspective: 1000px;
+}
+
+/* line 171, ../scss/style.scss */
+.modal-container {
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+/* line 179, ../scss/style.scss */
+.jslider {
+  position: relative;
+}
+/* line 182, ../scss/style.scss */
+.jslider .jslider-item {
+  position: absolute;
+  perspective: 2000px;
+  width: 100%;
+  height: 100%;
+}
+/* line 187, ../scss/style.scss */
+.jslider .jslider-item:not(:first-child) {
+  display: none;
+}
+/* line 192, ../scss/style.scss */
 .jslider .arrow-left, .jslider .arrow-right {
   position: absolute;
   display: inline-block;
+  z-index: 3;
   top: 50%;
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 100px;
-  height: 100px;
+  width: 15%;
+  height: 15%;
 }
-/* line 28, ../scss/style.scss */
+/* line 200, ../scss/style.scss */
 .jslider .arrow-left img, .jslider .arrow-right img {
   width: 100%;
 }
-/* line 33, ../scss/style.scss */
+/* line 205, ../scss/style.scss */
 .jslider .arrow-left {
-  left: 10%;
+  left: 5%;
 }
-/* line 36, ../scss/style.scss */
+/* line 208, ../scss/style.scss */
 .jslider .arrow-right {
-  right: 10%;
+  right: 5%;
+}
+/* line 211, ../scss/style.scss */
+.jslider .jslider_controls {
+  z-index: 3;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+/* line 219, ../scss/style.scss */
+.jslider .jslider_controls .j_dots {
+  position: relative;
+  display: inline-block;
+  border: 2px solid white;
+  margin: 1%;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+}
+/* line 227, ../scss/style.scss */
+.jslider .jslider_controls .j_dots:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  background: white;
+  -moz-transition: -moz-transform 0.3s ease-in;
+  -o-transition: -o-transform 0.3s ease-in;
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+/* line 240, ../scss/style.scss */
+.jslider .jslider_controls .j_dots.active:before {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
-/* line 43, ../scss/style.scss */
-.book_fold-old-part, .book_fold-new-part {
-  -moz-transition: -moz-transform 1.5s ease-in, opacity 0.7s ease-in;
-  -o-transition: -o-transform 1.5s ease-in, opacity 0.7s ease-in;
-  -webkit-transition: -webkit-transform 1.5s ease-in, opacity 0.7s ease-in;
-  transition: transform 1.5s ease-in, opacity 0.7s ease-in;
+/* line 246, ../scss/style.scss */
+.effect {
+  background: #444054;
+  color: #EBEBD3;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* line 254, ../scss/style.scss */
+.rotate {
+  opacity: 0;
+  -moz-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+}
+
+/* line 259, ../scss/style.scss */
+.card-outline {
+  position: absolute;
+  top: -15px;
+  left: 0;
+}
+
+/* line 264, ../scss/style.scss */
+.button-outline {
+  position: absolute;
+  width: 75%;
+  bottom: 50px;
+  left: 0;
+}
+
+/* line 273, ../scss/style.scss */
+a[class^='arrow-'] path {
+  stroke-width: 40px;
+  stroke: white;
+}
+
+/* line 282, ../scss/style.scss */
+.book_open-old-part, .book_open-new-part {
+  -moz-transition: -moz-transform 1s ease-in;
+  -o-transition: -o-transform 1s ease-in;
+  -webkit-transition: -webkit-transform 1s ease-in;
+  transition: transform 1s ease-in;
   position: absolute;
   opacity: 1;
 }
 
-/* line 49, ../scss/style.scss */
-.book_fold-old-part-page1-ani-after {
-  -moz-transform-origin: right center;
-  -ms-transform-origin: right center;
-  -webkit-transform-origin: right center;
-  transform-origin: right center;
-  -moz-transform: rotateY(-90deg);
-  -ms-transform: rotateY(-90deg);
-  -webkit-transform: rotateY(-90deg);
-  transform: rotateY(-90deg);
-}
-
-/* line 58, ../scss/style.scss */
-.book_fold-old-part-page2-ani-after {
-  -moz-transform-origin: left center;
-  -ms-transform-origin: left center;
-  -webkit-transform-origin: left center;
-  transform-origin: left center;
-  -moz-transform: rotateY(90deg);
-  -ms-transform: rotateY(90deg);
-  -webkit-transform: rotateY(90deg);
-  transform: rotateY(90deg);
-}
-
-/* line 67, ../scss/style.scss */
-.book_fold-new-part-page1-ani-before {
+/* line 288, ../scss/style.scss */
+.book_open-new-part-page1-ani-before {
   -moz-transform-origin: right center;
   -ms-transform-origin: right center;
   -webkit-transform-origin: right center;
@@ -90,8 +386,8 @@ body {
   transform: rotateY(90deg);
 }
 
-/* line 76, ../scss/style.scss */
-.book_fold-new-part-page2-ani-before {
+/* line 293, ../scss/style.scss */
+.book_open-new-part-page2-ani-before {
   -moz-transform-origin: left center;
   -ms-transform-origin: left center;
   -webkit-transform-origin: left center;
@@ -102,18 +398,351 @@ body {
   transform: rotateY(-90deg);
 }
 
-/* line 85, ../scss/style.scss */
-.book_fold-new-part-page1-ani-after {
+/* line 298, ../scss/style.scss */
+.book_open-new-part-page1-ani-after {
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
 
-/* line 90, ../scss/style.scss */
-.book_fold-new-part-page2-ani-after {
+/* line 302, ../scss/style.scss */
+.book_open-new-part-page2-ani-after {
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
   -webkit-transform: rotateY(0deg);
   transform: rotateY(0deg);
+}
+
+/* line 308, ../scss/style.scss */
+.book_close-old-part, .book_close-new-part {
+  -moz-transition: -moz-transform 1s ease-in-out;
+  -o-transition: -o-transform 1s ease-in-out;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  position: absolute;
+  opacity: 1;
+}
+
+/* line 314, ../scss/style.scss */
+.book_close-old-part-page1-ani-after {
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  -webkit-transform-origin: right center;
+  transform-origin: right center;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
+
+/* line 319, ../scss/style.scss */
+.book_close-old-part-page2-ani-after {
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+}
+
+/* line 326, ../scss/style.scss */
+.book_turn-old-part, .book_turn-new-part {
+  -moz-transition: -moz-transform 1s ease-in-out, opacity 1s ease-in;
+  -o-transition: -o-transform 1s ease-in-out, opacity 1s ease-in;
+  -webkit-transition: -webkit-transform 1s ease-in-out, opacity 1s ease-in;
+  transition: transform 1s ease-in-out, opacity 1s ease-in;
+  position: absolute;
+}
+
+/* line 331, ../scss/style.scss */
+.book_turn-old-part-page1-ani-after {
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+  opacity: 0;
+}
+
+/* line 337, ../scss/style.scss */
+.book_turn-old-part-page2-ani-after {
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  -webkit-transform-origin: right center;
+  transform-origin: right center;
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+  opacity: 0;
+}
+
+/* line 343, ../scss/style.scss */
+.book_turn-new-part-page1-ani-before {
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+  opacity: 0;
+}
+
+/* line 349, ../scss/style.scss */
+.book_turn-new-part-page2-ani-before {
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  -webkit-transform-origin: right center;
+  transform-origin: right center;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+  opacity: 0;
+}
+
+/* line 355, ../scss/style.scss */
+.book_turn-new-part-page1-ani-after {
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+/* line 360, ../scss/style.scss */
+.book_turn-new-part-page2-ani-after {
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+@-moz-keyframes example {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes example {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes example {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* line 374, ../scss/style.scss */
+.split-old-part {
+  position: absolute;
+  z-index: 2;
+}
+
+/* line 381, ../scss/style.scss */
+.split_fold-old-part {
+  position: absolute;
+  opacity: 1;
+  -moz-transition: -moz-transform 1s ease-in, opacity 1s ease-in;
+  -o-transition: -o-transform 1s ease-in, opacity 1s ease-in;
+  -webkit-transition: -webkit-transform 1s ease-in, opacity 1s ease-in;
+  transition: transform 1s ease-in, opacity 1s ease-in;
+}
+
+/* line 387, ../scss/style.scss */
+.split_fold-old-part-11-ani-after {
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+  opacity: 0;
+}
+
+/* line 393, ../scss/style.scss */
+.split_fold-old-part-12-ani-after {
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+  opacity: 0;
+}
+
+/* line 399, ../scss/style.scss */
+.split_fold-old-part-21-ani-after {
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+  opacity: 0;
+}
+
+/* line 405, ../scss/style.scss */
+.split_fold-old-part-22-ani-after {
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+  opacity: 0;
+}
+
+/* line 414, ../scss/style.scss */
+.split_fold_outward-old-part {
+  position: absolute;
+  opacity: 1;
+  -moz-transition: -moz-transform 1.3s ease-in, opacity 1.3s ease-in;
+  -o-transition: -o-transform 1.3s ease-in, opacity 1.3s ease-in;
+  -webkit-transition: -webkit-transform 1.3s ease-in, opacity 1.3s ease-in;
+  transition: transform 1.3s ease-in, opacity 1.3s ease-in;
+}
+
+/* line 420, ../scss/style.scss */
+.split_fold_outward-old-part-11-ani-after {
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -moz-transform: rotateY(-90deg);
+  -ms-transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+  opacity: 0;
+}
+
+/* line 425, ../scss/style.scss */
+.split_fold_outward-old-part-12-ani-after {
+  -moz-transform-origin: center top;
+  -ms-transform-origin: center top;
+  -webkit-transform-origin: center top;
+  transform-origin: center top;
+  -moz-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+  opacity: 0;
+}
+
+/* line 430, ../scss/style.scss */
+.split_fold_outward-old-part-21-ani-after {
+  -moz-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+  -moz-transform: rotateX(-90deg);
+  -ms-transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+  opacity: 0;
+}
+
+/* line 435, ../scss/style.scss */
+.split_fold_outward-old-part-22-ani-after {
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  -webkit-transform-origin: right center;
+  transform-origin: right center;
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+  opacity: 0;
+}
+
+/* line 443, ../scss/style.scss */
+.split_fold_scale-old-part {
+  position: absolute;
+  opacity: 1;
+  -moz-transition: -moz-transform 1s ease-in, opacity 1s ease-in;
+  -o-transition: -o-transform 1s ease-in, opacity 1s ease-in;
+  -webkit-transition: -webkit-transform 1s ease-in, opacity 1s ease-in;
+  transition: transform 1s ease-in, opacity 1s ease-in;
+}
+
+/* line 449, ../scss/style.scss */
+.split_fold_scale-old-part-11-ani-after {
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+/* line 454, ../scss/style.scss */
+.split_fold_scale-old-part-12-ani-after {
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+/* line 459, ../scss/style.scss */
+.split_fold_scale-old-part-21-ani-after {
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+/* line 464, ../scss/style.scss */
+.split_fold_scale-old-part-22-ani-after {
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+/* line 470, ../scss/style.scss */
+.practice {
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

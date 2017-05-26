@@ -1,0 +1,11 @@
+@media (min-width: 0) and (max-width: 576px) {
+  /* line 2, ../scss/mobile.scss */
+  html {
+    font-size: 10px;
+  }
+
+  /* line 5, ../scss/mobile.scss */
+  .section1 {
+    background: red;
+  }
+}
