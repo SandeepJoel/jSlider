@@ -48,7 +48,7 @@ var sliderClass = function(context,options){
 	transitionEvent = whichTransitionEvent();
 	
 	// j_slider controls setup creating
-	$(".jslider_controls",$slider).remove();
+	$(".jslider_controls", $slider).remove();
 	var j_controls_html = '<div class="jslider_controls">';
 	$slider_items.each(function(index){
 		if(index === 0){
@@ -61,16 +61,22 @@ var sliderClass = function(context,options){
 	j_controls_html+='</div>';
 	$slider.append(j_controls_html);
 	
-	$(".j_dots",$slider).on("click",function(){
+	$(".j_dots",$slider).on("click",function(event){
 		if($(this).hasClass("active")){
 			return;
 		}
+		console.log(event.currentTarget);
+		// settings.old_index = $(".jslider-item",$slider).index('.current');     == 2
+		// settings.old_index = $slider.find(".jslider-item").index('.current');  == 2
 		settings.old_index = $(".current",$slider).index();
+		console.log(settings);
+		debugger;
 		remove_old_navigation_classes(settings,$slider_items);
 		settings.current_index = parseInt($(this).data("j_index"));
 		settings.prev_index = (settings.current_index + $slider_items_count - 1) % $slider_items_count;
 		settings.next_index = (settings.current_index + 1) % $slider_items_count;
 		settings.direction = "controls";
+		// console.log(settings);
 		run_animation(settings,$slider_items);
 	});
 
@@ -249,6 +255,8 @@ $.fn.jslider.animationEffects = {
 					// use current and next
 					$original_item = $current_item;
 					$new_item =  $next_item;
+					console.log($original_item);
+					console.log($new_item);
 				}
 				if(settings.direction == "prev"){
 					// use current and prev
@@ -258,7 +266,9 @@ $.fn.jslider.animationEffects = {
 
 				if(settings.direction == "controls"){
 					$original_item = $slider_items.eq(settings.old_index);
-					$new_item = $slider_items.eq(settings.current_index);		
+					$new_item = $slider_items.eq(settings.current_index);	
+					console.log($original_item);
+					console.log($new_item);
 				}
 
 				var img_src = $original_item.find("img").attr('src');			
@@ -293,30 +303,30 @@ $.fn.jslider.animationEffects = {
 					$(".new-part-no-0",$slider).addClass(effect_name+"new-part-page1-ani-after");		
 					$(".new-part-no-1",$slider).addClass(effect_name+"new-part-page2-ani-after");
 					console.log("doing animation");
-					// debugger;
 					var count = 0;
+					 console.log($original_item);
+					 		// debugger;
 					$original_item.one(transitionEvent,function(e){
 						++count;
-							$(this).empty();
-							$(this).append("<img src='"+img_src+"' alt='' />");
-							console.log("animation over"+count);
-							settings.animating_state = false;
-							if(settings.direction =="prev"){
-								update_index_for_prev(settings,$slider_items);
-								show_current_item_only(settings,$slider_items);
-								apply_new_navigation_classes(settings,$slider_items);
-							}
-							if(settings.direction =="next"){
-								update_index_for_next(settings,$slider_items);
-								show_current_item_only(settings,$slider_items);
-								apply_new_navigation_classes(settings,$slider_items);
-							}
-							if(settings.direction == "controls"){
-								show_current_item_only(settings,$slider_items);
-								apply_new_navigation_classes(settings,$slider_items);
-							}	
+						$(this).empty();
+						$(this).append("<img src='"+img_src+"' alt='' />");
+						console.log("animation over"+count);
+						settings.animating_state = false;
+						if(settings.direction == "prev"){
+							update_index_for_prev(settings,$slider_items);
+							show_current_item_only(settings,$slider_items);
+							apply_new_navigation_classes(settings,$slider_items);
+						}
+						if(settings.direction == "next"){
+							update_index_for_next(settings,$slider_items);
+							show_current_item_only(settings,$slider_items);
+							apply_new_navigation_classes(settings,$slider_items);
+						}
+						if(settings.direction == "controls"){
+							show_current_item_only(settings,$slider_items);
+							apply_new_navigation_classes(settings,$slider_items);
+						}	
 					});
-
 				},300);
 
 			},

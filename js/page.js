@@ -28,8 +28,7 @@ function debounce(func, wait, immediate) {
 			if (!immediate) func.apply(context, args);
 		};
 		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
+		clearTimeout(timeout);		timeout = setTimeout(later, wait);
 		if (callNow) func.apply(context, args);
 	};
 };
@@ -39,7 +38,7 @@ function debounce(func, wait, immediate) {
 var updateModalPosition = debounce(function(){
 	var $effect_button = $("button.effect");
 	if(isElementInViewport($effect_button)){
-		// console.log("visible now");
+
 		var $modal = $(".modal");
 		var effect_button_x = $effect_button[0].getBoundingClientRect().left;
 		var effect_button_y = $effect_button[0].getBoundingClientRect().top;
@@ -70,8 +69,7 @@ var updateModalPosition = debounce(function(){
 			if (el.style[t] !== undefined){
 			return transitions[t];
 			}
-		}
-	};
+		}	};
 	transitionEvent = whichTransitionEvent();
 
 // scroll the page to trigger the line animation
@@ -81,7 +79,7 @@ var line_animation_duration = 1000;
 var check_for_animation = debounce(function(){
 	if(section1_animation_lock === false){
 		if(isElementInViewport(section1_hub)){
-			// console.log("class added")
+	
 			$("path",".section1").addClass("line-animation");
 			setTimeout(function(){
 				$(".section1").removeClass("initial-state-styles");
@@ -145,32 +143,48 @@ $(".modal a").on("click",function(event){
 	}
 });
 
-
 // Script for dynamically calculatiing the path length for the drawing animation
 var path = $('path.drawline');
 path.each(function(index,element){
 	var length = element.getTotalLength();
-	element.style.cssText = "stroke-dashoffset:"+length+";stroke-dasharray:"+length+";";
+	element.style.cssText = "display:block;stroke-dashoffset:"+length+";stroke-dasharray:"+length+";";
 });
 
+var leftArrowAnimation = debounce(function(arrow_paths){
+	arrow_paths[0].style.cssText = " display:block; stroke-dashoffset: 0; stroke-dasharray: " + arrow_paths[0].getTotalLength()+";";
+	arrow_paths[1].style.cssText = " display:block; stroke-dashoffset: " + arrow_paths[1].getTotalLength()  + " ;stroke-dasharray: " + arrow_paths[1].getTotalLength()+";";
+}, 300, true);
+
+var rightArrowAnimation = debounce(function(arrow_paths){
+	arrow_paths[0].style.cssText = " display:block; stroke-dashoffset: " + arrow_paths[0].getTotalLength()  + " ;stroke-dasharray: " + arrow_paths[0].getTotalLength()+";";
+	arrow_paths[1].style.cssText = " display:block; stroke-dashoffset: 0; stroke-dasharray: " + arrow_paths[1].getTotalLength()+";";
+}, 300, true);
+
 // mouse-over line animation
+var arrowAnimationSwitch;
+var arrow_paths;
 $(".jslider").hover(function(){
-	// console.log("entering...");
 	var slider_width = $(this).width();
 	var slider_x_position = $(this).offset().left;
-	var arrow_paths = $("path.drawline",this);
+	arrow_paths = $("path.drawline",this);
 	$(this).mousemove(function(event){
 		var mouse_position_inside_slider = event.pageX - slider_x_position;
 		if(mouse_position_inside_slider < slider_width / 2){
-			arrow_paths.eq(0).addClass("line-animation");
-			arrow_paths.eq(1).removeClass("line-animation");
+			leftArrowAnimation(arrow_paths);
+			arrowAnimationSwitch = 'left';
 		}
 		else{
-			arrow_paths.eq(0).removeClass("line-animation");
-			arrow_paths.eq(1).addClass("line-animation");
+			rightArrowAnimation(arrow_paths);
+			arrowAnimationSwitch = 'right';
 		}
 	});
-},function(){
-	$("path").removeClass("line-animation");
-	// console.log("leaving...");
+}, function(){
+	switch(arrowAnimationSwitch){
+		case 'left':
+			arrow_paths[0].style.cssText = " display:block; stroke-dashoffset: " + arrow_paths[0].getTotalLength()  + " ;stroke-dasharray: " + arrow_paths[0].getTotalLength()+";";
+		break;
+		case 'right':
+			arrow_paths[1].style.cssText = " display:block; stroke-dashoffset: " + arrow_paths[1].getTotalLength()  + " ;stroke-dasharray: " + arrow_paths[1].getTotalLength()+";";
+		break;
+	}
 });

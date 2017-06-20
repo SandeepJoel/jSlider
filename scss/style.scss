@@ -1,41 +1,47 @@
 @import "compass";
 $side_space_for_arrows: 5%;
-// $arrow-size: 5vw;
 $arrow-size: 15%;
-$dots-size: 2vw;
+$dots-size: 1.5vw;
 $border-radius: 10px; 
 $primary_color:  #444054;
 $complementary_color: #EBEBD3;
 $gray: #A3A3A3;
+
 body{
 font-family: Raleway;
 margin: 0;
 }
+
 a{
 	text-decoration: none;
 }
+
 img{
 	width: 100%;
 }
+
 .jslider img{
 	width: 100%;
 	border-radius: $border-radius;
 	height: 100%;
 }
+
 // helper class
-.border-tl{
+.border-tl {
 	border-top-left-radius:$border-radius;
-	}
-.border-tr{
+}
+
+.border-tr {
 	border-top-right-radius:$border-radius;
-	}
-.border-br{
+}
+
+.border-br {
 	border-bottom-right-radius:$border-radius;
-	}
-.border-bl{
+}
+.border-bl {
 	border-bottom-left-radius:$border-radius;
 	}
-.overflow-hidden{
+.overflow-hidden {
 	overflow: hidden;
 }
 .overflow-auto{
@@ -127,12 +133,6 @@ svg{
 .section2{
 	background-color: $complementary_color;
 }
-//section1 styles
-.flat-slider{
-	// background-color: $complementary_color;
-  	// box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); 
-	// height: 450px;
-}
 
 //section2 styles
 
@@ -212,24 +212,39 @@ svg{
 		z-index: 3;
 		position: absolute;
 		bottom: 5%;
+		font-size: 0;
 		left: 50%;
 		width: 100%;
 		text-align: center;
 		@include translateX(-50%);
-		.j_dots{
+		.j_dots {
 			position: relative;
 			display: inline-block;
-			border: 2px solid white;
-			margin: 1%;
+			margin: auto 1%;
 			width: $dots-size;
 			height: $dots-size;
-			border-radius: 50%;
-			&:before{
-				content : "";
-				display:block;
-				position:absolute;
-				top:-2px; //Need to research on this temporary fix
-				left:-2px; //Need to research on this temporary fix
+			vertical-align: middle;
+			cursor: pointer;
+			&:before {	
+				position: absolute;
+				content: "";
+				display: inline-block;
+				border: 2px solid white;
+				@include transition(all 0.3s ease-in);
+				width: $dots-size;
+				height: $dots-size;
+				border-radius: 50%;
+				vertical-align: middle;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+			&:after {
+				content :  "";
+				display: block;
+				position: absolute;
+				top: 0px;
+				left: 0px;
 				width: $dots-size;
 				height: $dots-size;
 				border-radius: 50%;
@@ -237,8 +252,13 @@ svg{
 				@include transition(transform 0.3s ease-in);
 				@include transform(scale(0));
 			}
-			&.active:before{
+			&.active:after{
 				@include transform(scale(1));	
+			}
+			&.active:before {
+				width: calc(#{$dots-size} + 15px);
+				height: calc(#{$dots-size} + 15px);
+				 opacity: 0;	
 			}
 		}
 	}
@@ -271,8 +291,11 @@ svg{
 // targetting only slider arrows svg path
 a[class^='arrow-']{
 	path{
+		display: none;
+		fill: none;
 		stroke-width: 40px;
 		stroke: white;
+		transition: all 0.5s linear;
 	}
 }
 // Effects

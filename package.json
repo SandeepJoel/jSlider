@@ -4,7 +4,7 @@
   "description": "",
   "main": "GruntFile.js",
   "devDependencies": {
-    "bootstrap": "^4.0.0-npmalpha.6",
+    "bootstrap": "^4.0.0-alpha.6",
     "grunt": "~0.4.5",
     "grunt-contrib-compass": "1.1.1",
     "grunt-contrib-uglify": "^2.1.0",
